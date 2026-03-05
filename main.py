@@ -1,5 +1,3 @@
-# Made by tek.dev if ur gonna skid at least give credits
-
 import sys
 import os
 import time
@@ -12,7 +10,7 @@ try:
     from pymem.process import list_processes
     import dearpygui.dearpygui as dpg
 except ImportError as e:
-    print(f"You are missing dependencies: {e}")
+    print(f"Missing dependency: {e}")
     input("Press Enter to exit...")
     sys.exit(1)
 
@@ -123,11 +121,8 @@ def drag_viewport(sender, app_data):
 
 if __name__ == "__main__":
     try:
-        offsets = requests.get('https://offsets.ntgetwritewatch.workers.dev/offsets.json').json()
-    except: 
-        print(f"Offsets source is invalid, use a new one: {e}")
-        input("Press Enter to exit...")
-        sys.exit(1)
+        offsets = requests.get('https://raw.githubusercontent.com/NtReadVirtualMemory/Roblox-Offsets-Website/refs/heads/main/offsets.json').json()
+    except: sys.exit(1)
 
     threading.Thread(target=speed_loop, daemon=True).start()
 
@@ -168,7 +163,7 @@ if __name__ == "__main__":
             dpg.add_checkbox(label="ENABLE SPEED", callback=lambda s, a: globals().update(speed_enabled=a))
             dpg.add_spacer(width=10)
 
-        dpg.add_slider_float(label="", default_value=50.0, min_value=16.0, max_value=500.0, callback=lambda s, a: globals().update(speed_value=a), width=-1)
+        dpg.add_slider_float(label="", default_value=50.0, min_value=16.0, max_value=300.0, callback=lambda s, a: globals().update(speed_value=a), width=-1)
         
         dpg.add_spacer(height=10)
         dpg.add_separator()
