@@ -1,3 +1,5 @@
+#made by tek.dev if you're gonna skid as a base give creds
+
 import sys
 import os
 import time
