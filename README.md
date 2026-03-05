@@ -1,2 +1,2 @@
 # roblox-external-base
-for all the skids out there
+simple external base to build upon
